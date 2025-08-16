@@ -1,0 +1,45 @@
+.filter-section {
+  width: 25vw;
+  padding-left: 5vw;
+  background-color: #121212;
+  padding-top: 5vh;
+}
+.filters {
+  margin: 0;
+  padding: 0;
+}
+.each-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.profile-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.name {
+  color: #4f46e5;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 0;
+}
+.profile-pic {
+  width: 50px;
+}
+.bio {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 0;
+}
+.filter-input {
+  margin-right: 05px;
+  height: 15px;
+}

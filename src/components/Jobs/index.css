@@ -1,0 +1,11 @@
+.jobs-section {
+  display: flex;
+  flex-direction: row;
+  padding-right: 5vw;
+  background-color: #121212;
+  color: white;
+}
+.jobs-container {
+  padding-top: 5vh;
+  margin-left: 2vw;
+}

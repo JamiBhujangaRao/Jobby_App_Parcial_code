@@ -1,0 +1,42 @@
+.nav-container {
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #272727;
+  color: white;
+  font-weight: bold;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  align-items: center;
+}
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.each-nav {
+  list-style: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
+.link {
+  text-decoration: none;
+  color: white;
+}
+.website-logo {
+  height: 05vh;
+}
+.log-out-btn {
+  background-color: #6366f1;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+  border: 0;
+  border-radius: 05px;
+  font-weight: 500;
+}

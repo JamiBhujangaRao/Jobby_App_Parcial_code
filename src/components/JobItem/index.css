@@ -1,0 +1,51 @@
+.link {
+  text-decoration: none;
+}
+
+.each-job {
+  background-color: #202020;
+  list-style: none;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  padding: 20px;
+  border-radius: 15px;
+}
+.company-logo {
+  height: 60px;
+  margin-right: 10px;
+}
+.company-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.star-icon {
+  color: #fbbf24;
+}
+.job-details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.icons {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.location-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.job-type-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.job-type-location-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
