@@ -5,8 +5,7 @@
 .each-job {
   background-color: #202020;
   list-style: none;
-  margin-bottom: 2vh;
-  margin-top: 2vh;
+  margin: 10px;
   padding: 20px;
   border-radius: 15px;
 }
@@ -48,4 +47,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.subtitle {
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
 }

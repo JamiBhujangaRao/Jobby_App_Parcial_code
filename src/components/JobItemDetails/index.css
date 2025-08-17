@@ -1,0 +1,117 @@
+.job-item-details-container {
+  background-color: black;
+  height: 100%;
+  font-family: Roboto;
+}
+
+.each-jobItem-details {
+  color: white;
+  background-color: #202020;
+  margin-top: 5vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding: 20px;
+  border-radius: 15px;
+}
+.visit-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+}
+.visit-link {
+  margin-left: 5px;
+  font-size: 18px;
+  margin-right: 10px;
+}
+.visit {
+  font-weight: 500;
+  font-size: 23px;
+}
+.company-url {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: #6366f1;
+}
+
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+.each-skill {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 30%;
+  margin: 10px;
+}
+.skill-image {
+  height: 40px;
+  margin-right: 10px;
+}
+.job-details-seaction {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  height: 100%;
+}
+
+.simiar-jobs-seaction {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-bottom: 2vw;
+}
+.ul-simiar-jobs-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.similar-jobs-title {
+  margin-left: 5vw;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
+.life-at-company-container {
+  display: flex;
+  flex-direction: row;
+}
+.life-at-company-image {
+  width: 60vw;
+  border-radius: 10px;
+}
+.subtitle {
+  margin-bottom: 0;
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+.description {
+  font-size: 17px;
+  width: 60vw;
+  color: white;
+  font-weight: 300;
+}
+.job-role {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+.skill-name {
+  font-size: 17px;
+  font-family: 500;
+}

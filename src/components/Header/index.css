@@ -1,18 +1,21 @@
 .nav-container {
-  height: 10vh;
+  height: 11vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   background-color: #272727;
   color: white;
   font-weight: bold;
   padding-left: 5vw;
   padding-right: 5vw;
   align-items: center;
+  cursor: pointer;
 }
 .nav-items {
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -24,9 +27,11 @@
   font-weight: bold;
   margin: 10px;
 }
-.link {
+.route-link {
   text-decoration: none;
   color: white;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 .website-logo {
   height: 05vh;
@@ -39,4 +44,17 @@
   border: 0;
   border-radius: 05px;
   font-weight: 500;
+  cursor: pointer;
+}
+
+.route-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.link{
+  text-decoration: none;
+  color: white;
+
 }

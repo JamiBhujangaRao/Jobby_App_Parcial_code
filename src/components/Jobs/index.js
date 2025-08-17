@@ -81,6 +81,7 @@ class Jobs extends Component {
   }
 
   getJobsData = async () => {
+    this.setState({jobsPageStatus: apistatus.inProcess})
     const jwtToken = Cookies.get('jwt_token')
     const url = `https://apis.ccbp.in/jobs?${this.getUrl()}`
     const options = {
@@ -116,29 +117,50 @@ class Jobs extends Component {
   }
 
   onRetry = () => {
-    const {history} = this.props
-    history.replace('/jobs')
+    this.getJobsData()
   }
 
   onChangeEmployment = value => {
-    this.setState(
-      prevState => ({
-        typeofEmployment: [...prevState.typeofEmployment, value],
-      }),
-      this.getJobsData,
-    )
+    this.setState(prevState => {
+      const alreadySelectd = prevState.typeofEmployment.includes(value)
+      const upDatedList = alreadySelectd
+        ? prevState.typeofEmployment.filter(each => each !== value)
+        : [...prevState.typeofEmployment, value]
+      return {typeofEmployment: upDatedList}
+    }, this.getJobsData)
   }
 
   onChangePackage = value => {
     this.setState({saleryRange: value}, this.getJobsData)
   }
 
+  renderNoJobs = () => (
+    <div className="no-jobs-container">
+      <img
+        className="no-jobs-image"
+        alt="no jobs"
+        src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+      />
+      <h1 className="no-jobs-title">No Jobs Found</h1>
+      <p className="about">We could not find any jobs. Try other filters.</p>
+    </div>
+  )
+
   renderSuccessView = () => {
     const {jobsList} = this.state
-    return jobsList.map(each => <JobItem jobDetails={each} key={each.id} />)
+    if (jobsList.length === 0) {
+      return this.renderNoJobs()
+    }
+    return (
+      <ul className="un-jobs-list">
+        {jobsList.map(each => (
+          <JobItem jobDetails={each} key={each.id} />
+        ))}
+      </ul>
+    )
   }
 
-  renderProfile = () => (
+  renderProfileAndFilter = () => (
     <JobFilters
       employmentTypesList={employmentTypesList}
       salaryRangesList={salaryRangesList}
@@ -156,7 +178,7 @@ class Jobs extends Component {
       />
       <h1 className="failure-view-title">Oops! Something Went Wrong</h1>
       <p className="failure-view-description">
-        We cannot seem to find the page you are looking for.
+        We cannot seem to find the page you are looking for
       </p>
       <button className="retry-btn" type="button" onClick={this.onRetry}>
         Retry
@@ -175,11 +197,7 @@ class Jobs extends Component {
   }
 
   onSearchJobsOnInput = () => {
-    const {jobsList, jobSearchInput} = this.state
-    const filterdList = jobsList.filter(each =>
-      each.title.toLowerCase().includes(jobSearchInput.toLowerCase()),
-    )
-    this.setState({jobsList: filterdList}, this.getJobsData)
+    this.getJobsData()
   }
 
   renderJobsSection = () => {
@@ -197,25 +215,33 @@ class Jobs extends Component {
   }
 
   render() {
-    const {jobSearchInput} = this.state
+    const {jobSearchInput, typeofEmployment} = this.state
+    console.log(typeofEmployment)
 
     return (
       <div className="jobs-page">
         <Header />
         <div className="jobs-section">
-          <div className="filters-container">{this.renderProfile()}</div>
+          <div className="filters-container">
+            {this.renderProfileAndFilter()}
+          </div>
           <div className="jobs-container">
             <div className="search-container">
               <input
+                type="search"
                 className="job-search"
                 value={jobSearchInput}
                 placeholder="Search"
                 onChange={this.onChangeSeachInput}
               />
-              <BsSearch
-                className="search-icon"
+              <button
+                className="search-icon-container"
+                data-testid="searchButton"
+                type="button"
                 onClick={this.onSearchJobsOnInput}
-              />
+              >
+                <BsSearch className="search-icon" />
+              </button>
             </div>
             {this.renderJobsSection()}
           </div>

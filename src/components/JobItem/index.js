@@ -28,7 +28,7 @@ class JobItem extends Component {
               src={companyLogoUrl}
             />
             <div className="role-container">
-              <p className="job-role">{title}</p>
+              <h1 className="job-role">{title}</h1>
               <p className="rating">
                 <GiRoundStar className="star-icon" /> {rating}
               </p>
@@ -48,7 +48,7 @@ class JobItem extends Component {
             <p className="package">{packagePerAnnum}</p>
           </div>
           <hr className="line" />
-          <p className="desciption">Desciption</p>
+          <h1 className="subtitle">Description</h1>
           <p className="job-desciption">{jobDescription}</p>
         </li>
       </Link>

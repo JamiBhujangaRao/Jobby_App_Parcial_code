@@ -13,31 +13,35 @@ class Header extends Component {
   render() {
     return (
       <nav className="nav-container">
-        <img
-          className="website-logo"
-          alt="website logo"
-          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-        />
         <ul className="nav-items">
           <li className="each-nav">
-            <Link to="/" className="link">
-              Home
+            <Link to="/" className="route-link">
+              <img
+                className="website-logo"
+                alt="website logo"
+                src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+              />
             </Link>
           </li>
+
           <li className="each-nav">
-            <Link to="/jobs" className="link">
+            <Link to="/" className="route-link">
+              Home
+            </Link>
+            <Link to="/jobs" className="route-link">
               Jobs
             </Link>
           </li>
+          <li className="each-nav">
+            <button
+              className="log-out-btn"
+              type="button"
+              onClick={this.onClickLogout}
+            >
+              Logout
+            </button>
+          </li>
         </ul>
-
-        <button
-          className="log-out-btn"
-          type="button"
-          onClick={this.onClickLogout}
-        >
-          Logout
-        </button>
       </nav>
     )
   }

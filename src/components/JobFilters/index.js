@@ -26,6 +26,7 @@ class JobFilters extends Component {
   }
 
   getProfileData = async () => {
+    this.setState({profileStatus: apistatus.inProcess})
     const jwtToken = Cookies.get('jwt_token')
     const url = 'https://apis.ccbp.in/profile'
     const options = {
@@ -37,6 +38,7 @@ class JobFilters extends Component {
     }
 
     const response = await fetch(url, options)
+    console.log(response)
     if (response.ok === true) {
       const jsonData = await response.json()
       const structuredDate = {
@@ -52,8 +54,7 @@ class JobFilters extends Component {
   }
 
   onRetry = () => {
-    const {history} = this.props
-    history.replace('/jobs')
+    this.getProfileData()
   }
 
   renderProfileView = () => {
@@ -65,7 +66,7 @@ class JobFilters extends Component {
           alt="profile"
           src={profileDetails.profileImageUrl}
         />
-        <p className="name">{profileDetails.name}</p>
+        <h1 className="name">{profileDetails.name}</h1>
         <p className="bio">{profileDetails.shortBio}</p>
       </div>
     )
@@ -79,7 +80,7 @@ class JobFilters extends Component {
     </div>
   )
 
-  renderInProcessView = () => (
+  renderInProcess = () => (
     <div className="loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
@@ -112,9 +113,9 @@ class JobFilters extends Component {
   }
 
   renderEmploymentFilter = list => (
-    <ul className="filters">
+    <ul className="employmentType-filters">
       {list.map(each => (
-        <li className="each-list">
+        <li className="each-list" key={each.employmentTypeId}>
           <input
             className="filter-input"
             type="checkbox"
@@ -123,7 +124,7 @@ class JobFilters extends Component {
             name="empoment_type"
             onChange={this.onChangeEmp}
           />
-          <label className="label" htmlFor={each.id}>
+          <label className="label" htmlFor={each.employmentTypeId} key="label">
             {each.label}
           </label>
         </li>
@@ -132,18 +133,18 @@ class JobFilters extends Component {
   )
 
   renderPackageFilter = list => (
-    <ul className="filters">
+    <ul className="salaryRange-filters">
       {list.map(each => (
-        <li className="each-list">
+        <li className="each-list" key={each.salaryRangeId}>
           <input
             className="filter-input"
             type="radio"
-            id={each.id}
+            id={each.salaryRangeId}
             value={each.salaryRangeId}
             onChange={this.onChangeSalery}
             name="package"
           />
-          <label className="label" htmlFor={each.id}>
+          <label className="label" htmlFor={each.salaryRangeId} key="label">
             {each.label}
           </label>
         </li>
@@ -155,17 +156,16 @@ class JobFilters extends Component {
     const {employmentTypesList, salaryRangesList} = this.props
     return (
       <div className="filter-section">
-        {this.renderProfileDetails()}
-        <hr />
+        <div className="profil-seaction">{this.renderProfileDetails()}</div>
+        <hr className="hr" />
         <div className="filter-container">
           <div className="container">
-            <p className="filter-title">Type of Employment</p>
+            <h1 className="filter-title">Type of Employment</h1>
             {this.renderEmploymentFilter(employmentTypesList)}
-            <hr />
           </div>
-
+          <hr />
+          <h1 className="filter-title">Salary Range</h1>
           <div className="container">
-            <p className="filter-title">Salery Package</p>
             {this.renderPackageFilter(salaryRangesList)}
           </div>
         </div>

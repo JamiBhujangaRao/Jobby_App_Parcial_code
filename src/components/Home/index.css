@@ -27,3 +27,13 @@
 .home-desciption {
   font-size: 25px;
 }
+.find-jobs-btn {
+  text-align: center;
+  height: 40px;
+  width: 120px;
+  background-color: #4f46e5;
+  border: 0;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}

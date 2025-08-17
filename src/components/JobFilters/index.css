@@ -4,7 +4,11 @@
   background-color: #121212;
   padding-top: 5vh;
 }
-.filters {
+.employmentType-filters {
+  margin: 0;
+  padding: 0;
+}
+.salaryRange-filters {
   margin: 0;
   padding: 0;
 }
@@ -17,12 +21,12 @@
 }
 .profile-container {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 20px;
+  width: 100%;
 }
 .name {
   color: #4f46e5;
@@ -31,7 +35,7 @@
   margin-top: 0;
 }
 .profile-pic {
-  width: 50px;
+  width: 5vw;
 }
 .bio {
   color: #64748b;
@@ -42,4 +46,40 @@
 .filter-input {
   margin-right: 05px;
   height: 15px;
+}
+.loader-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.retry-btn {
+  text-align: center;
+  height: 30px;
+  width: 70px;
+  background-color: #4f46e5;
+  border: 0;
+  color: white;
+  border-radius: 4px;
+}
+.profil-seaction {
+  height: 17vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+failure-profile-container {
+  height: 100%;
+  width: 100%;
+}
+.hr {
+  margin-top: 5vh;
+}
+.filter-title{
+  font-size: 20px;
+  font-weight: 500;
 }
